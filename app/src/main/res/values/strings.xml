@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DynamicList</string>
+    <string name="add_button">Add element of list</string>
+</resources>
