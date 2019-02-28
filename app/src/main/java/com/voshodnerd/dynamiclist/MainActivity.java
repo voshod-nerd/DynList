@@ -78,9 +78,9 @@ public class MainActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
         myDataset= new ArrayList<>();
 
-        myDataset.add(new ImageModel(4,4,"photo1","nono","none"));
-        myDataset.add(new ImageModel(4,4,"photo2","nono","none"));
-        myDataset.add(new ImageModel(4,4,"photo3","nono","none"));
+       // myDataset.add(new ImageModel(4,4,"photo1","nono","none"));
+       // myDataset.add(new ImageModel(4,4,"photo2","nono","none"));
+       // myDataset.add(new ImageModel(4,4,"photo3","nono","none"));
 
 
 

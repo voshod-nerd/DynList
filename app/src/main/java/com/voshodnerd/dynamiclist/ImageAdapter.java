@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.voshodnerd.dynamiclist.model.ImageModel;
+import com.voshodnerd.dynamiclist.rest.DownloadImageTask;
 import java.util.List;
 
 
@@ -59,7 +59,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
     public ImageAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                         int viewType) {
         // create a new view
-        View itemView = (View) LayoutInflater.from(parent.getContext())
+        View itemView =  LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.my_text, parent, false);
 
         MyViewHolder viewHolder = new MyViewHolder(itemView, this.mItemListener);
@@ -69,17 +69,16 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-
-
-
-        ImageModel  image= imagelist.get(position);
+        final ImageModel  image= imagelist.get(position);
         holder.idText.setText(image.getId().toString());
         holder.titleText.setText(image.getTitle());
         holder.urltext.setText(image.getUrl());
 
+       DownloadImageTask img= new DownloadImageTask(holder.imageView);
+       img.execute(image.getUrl());
 
 
     }
